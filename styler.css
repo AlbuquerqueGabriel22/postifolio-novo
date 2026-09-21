@@ -1,0 +1,9 @@
+/* Body styling with smooth gradient background */
+*{
+    color: #ffffff;
+}
+
+body{
+    /* Gradient background for a modern look */
+    background: linear-gradient(135deg, #0a0909ff, #2a5298);
+}
