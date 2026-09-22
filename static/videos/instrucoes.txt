@@ -1,0 +1,7 @@
+Adicione seus 4 arquivos de vídeo aqui com os nomes:
+- video1.mp4
+- video2.mp4
+- video3.mp4
+- video4.mp4
+
+Eles rodarão automaticamente nas colmeias em loop e sem som!

@@ -25,7 +25,7 @@ document.addEventListener('mousemove', (e) => {
 })();
 
 // Scale cursor on interactive elements
-document.querySelectorAll('a, button, .projeto-card, .area-card, .certificado-card, .skill-tag, .social-link').forEach(el => {
+document.querySelectorAll('a, button, .projeto-card, .area-card, .certificado-card, .skill-tag, .social-link, .honeycomb-wrap, .folder').forEach(el => {
     el.addEventListener('mouseenter', () => {
         cursor.style.transform         = 'translate(-50%, -50%) scale(2.5)';
         cursorFollower.style.transform = 'translate(-50%, -50%) scale(1.6)';
@@ -154,7 +154,6 @@ function staggerGrid(containerSel, childSel, delay = 90) {
 
 staggerGrid('.projetos-grid',      '.projeto-card',       100);
 staggerGrid('.areas-grid',         '.area-card',          90);
-staggerGrid('.certificados-grid',  '.certificado-card',   100);
 staggerGrid('.projetos-lista-grid','.projeto-lista-card', 110);
 staggerGrid('.skills-grid',        '.skill-tag',          50);
 
@@ -187,3 +186,97 @@ if (mobileBtn && navLinksEl) {
         });
     });
 }
+
+/* ---- CERTIFICADOS FOLDER & CAROUSEL (ROLETA) ---- */
+const folderCert = document.getElementById('folder-cert');
+const folderElement = document.querySelector('.folder');
+const carouselCert = document.getElementById('carousel-cert');
+const closeCarousel = document.getElementById('close-carousel');
+const certItems = Array.from(document.querySelectorAll('.cert-item'));
+const btnPrev = document.getElementById('cert-prev');
+const btnNext = document.getElementById('cert-next');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+    certItems.forEach((item, index) => {
+        item.classList.remove('active', 'prev', 'next', 'hidden');
+        
+        if (index === currentIndex) {
+            item.classList.add('active');
+        } else if (index === currentIndex - 1 || (currentIndex === 0 && index === certItems.length - 1)) {
+            item.classList.add('prev');
+        } else if (index === currentIndex + 1 || (currentIndex === certItems.length - 1 && index === 0)) {
+            item.classList.add('next');
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+}
+
+if (folderCert) {
+    folderCert.addEventListener('click', () => {
+        // Animation: Open folder
+        folderElement.classList.add('open');
+        
+        // Wait for folder to open, then show carousel
+        setTimeout(() => {
+            folderCert.style.display = 'none';
+            carouselCert.classList.add('active');
+            updateCarousel();
+        }, 500);
+    });
+}
+
+if (closeCarousel) {
+    closeCarousel.addEventListener('click', () => {
+        carouselCert.classList.remove('active');
+        setTimeout(() => {
+            folderCert.style.display = 'flex';
+            folderElement.classList.remove('open');
+        }, 500);
+    });
+}
+
+if (btnPrev) {
+    btnPrev.addEventListener('click', () => {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : certItems.length - 1;
+        updateCarousel();
+    });
+}
+
+if (btnNext) {
+    btnNext.addEventListener('click', () => {
+        currentIndex = (currentIndex < certItems.length - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+    });
+}
+
+/* ---- AUTOPLAY MUTE VIDEOS EM COLMEIA ---- */
+document.querySelectorAll('.honeycomb-video').forEach(video => {
+    video.muted = true;
+    video.setAttribute('muted', '');
+    video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.loop = true;
+    
+    // Inicia vídeo automaticamente
+    const startPlay = () => {
+        const promise = video.play();
+        if (promise !== undefined) {
+            promise.catch(() => {
+                // Se o navegador barrar o autoplay no carregamento inicial, inicia ao rolar até ele
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            video.play().catch(() => {});
+                        }
+                    });
+                }, { threshold: 0.1 });
+                obs.observe(video);
+            });
+        }
+    };
+    
+    startPlay();
+});
