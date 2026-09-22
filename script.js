@@ -25,7 +25,7 @@ document.addEventListener('mousemove', (e) => {
 })();
 
 // Scale cursor on interactive elements
-document.querySelectorAll('a, button, .projeto-card, .area-card, .certificado-card, .skill-tag, .social-link, .honeycomb-wrap, .folder').forEach(el => {
+document.querySelectorAll('a, button, .projeto-card, .area-card, .certificado-card, .skill-tag, .social-link, .honeycomb-wrap, .folder, .book, .proj-item, .modal-close').forEach(el => {
     el.addEventListener('mouseenter', () => {
         cursor.style.transform         = 'translate(-50%, -50%) scale(2.5)';
         cursorFollower.style.transform = 'translate(-50%, -50%) scale(1.6)';
@@ -187,7 +187,7 @@ if (mobileBtn && navLinksEl) {
     });
 }
 
-/* ---- CERTIFICADOS FOLDER & CAROUSEL (ROLETA) ---- */
+/* ---- CERTIFICADOS: ANIMAÇÃO DE SAÍDA E ENTRADA NA PASTA ---- */
 const folderCert = document.getElementById('folder-cert');
 const folderElement = document.querySelector('.folder');
 const carouselCert = document.getElementById('carousel-cert');
@@ -216,25 +216,48 @@ function updateCarousel() {
 
 if (folderCert) {
     folderCert.addEventListener('click', () => {
-        // Animation: Open folder
+        // 1. Abre a aba da pasta
         folderElement.classList.add('open');
         
-        // Wait for folder to open, then show carousel
+        // 2. Os certificados emergem e saltam de dentro da pasta
         setTimeout(() => {
-            folderCert.style.display = 'none';
             carouselCert.classList.add('active');
-            updateCarousel();
-        }, 500);
+            certItems.forEach((item, i) => {
+                item.classList.remove('retracting');
+                item.classList.add('ejecting');
+                item.style.animationDelay = `${i * 120}ms`;
+            });
+
+            // 3. Após a animação de ejeção, posiciona a roleta
+            setTimeout(() => {
+                certItems.forEach(item => {
+                    item.classList.remove('ejecting');
+                    item.style.animationDelay = '';
+                });
+                updateCarousel();
+            }, 800);
+        }, 400);
     });
 }
 
 if (closeCarousel) {
     closeCarousel.addEventListener('click', () => {
-        carouselCert.classList.remove('active');
+        // 1. Os certificados mergulham de volta para dentro da pasta
+        certItems.forEach((item, i) => {
+            item.classList.remove('active', 'prev', 'next', 'hidden');
+            item.classList.add('retracting');
+            item.style.animationDelay = `${(certItems.length - 1 - i) * 80}ms`;
+        });
+
+        // 2. Fecha a pasta
         setTimeout(() => {
-            folderCert.style.display = 'flex';
+            carouselCert.classList.remove('active');
+            certItems.forEach(item => {
+                item.classList.remove('retracting');
+                item.style.animationDelay = '';
+            });
             folderElement.classList.remove('open');
-        }, 500);
+        }, 600);
     });
 }
 
@@ -251,6 +274,217 @@ if (btnNext) {
         updateCarousel();
     });
 }
+
+/* ---- LIVRO 3D DE PROJETOS & ROLETA ---- */
+const livroContainer = document.getElementById('livro-container');
+const bookElement = document.getElementById('book-element');
+const projetosCarousel = document.getElementById('projetos-carousel');
+const closeProjetos = document.getElementById('close-projetos');
+const projItems = Array.from(document.querySelectorAll('.proj-item'));
+const projPrev = document.getElementById('proj-prev');
+const projNext = document.getElementById('proj-next');
+
+let currentProjIndex = 0;
+
+function updateProjetosCarousel() {
+    projItems.forEach((item, index) => {
+        item.classList.remove('active', 'prev', 'next', 'hidden');
+        
+        if (index === currentProjIndex) {
+            item.classList.add('active');
+        } else if (index === currentProjIndex - 1 || (currentProjIndex === 0 && index === projItems.length - 1)) {
+            item.classList.add('prev');
+        } else if (index === currentProjIndex + 1 || (currentProjIndex === projItems.length - 1 && index === 0)) {
+            item.classList.add('next');
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+}
+
+if (bookElement) {
+    bookElement.addEventListener('click', () => {
+        // 1. O livro abre a capa e as páginas em 3D
+        bookElement.classList.add('open');
+        
+        // 2. Os projetos saltam de dentro do livro
+        setTimeout(() => {
+            projetosCarousel.classList.add('active');
+            projItems.forEach((item, i) => {
+                item.classList.remove('retracting');
+                item.classList.add('ejecting');
+                item.style.animationDelay = `${i * 120}ms`;
+            });
+
+            // 3. Posiciona na roleta após saltarem
+            setTimeout(() => {
+                projItems.forEach(item => {
+                    item.classList.remove('ejecting');
+                    item.style.animationDelay = '';
+                });
+                updateProjetosCarousel();
+            }, 800);
+        }, 450);
+    });
+}
+
+if (closeProjetos) {
+    closeProjetos.addEventListener('click', () => {
+        // 1. Projetos mergulham de volta para as páginas do livro
+        projItems.forEach((item, i) => {
+            item.classList.remove('active', 'prev', 'next', 'hidden');
+            item.classList.add('retracting');
+            item.style.animationDelay = `${(projItems.length - 1 - i) * 80}ms`;
+        });
+
+        // 2. Fecha o livro
+        setTimeout(() => {
+            projetosCarousel.classList.remove('active');
+            projItems.forEach(item => {
+                item.classList.remove('retracting');
+                item.style.animationDelay = '';
+            });
+            bookElement.classList.remove('open');
+        }, 600);
+    });
+}
+
+if (projPrev) {
+    projPrev.addEventListener('click', () => {
+        currentProjIndex = (currentProjIndex > 0) ? currentProjIndex - 1 : projItems.length - 1;
+        updateProjetosCarousel();
+    });
+}
+
+if (projNext) {
+    projNext.addEventListener('click', () => {
+        currentProjIndex = (currentProjIndex < projItems.length - 1) ? currentProjIndex + 1 : 0;
+        updateProjetosCarousel();
+    });
+}
+
+/* ---- MODAL DE DETALHES DO PROJETO ---- */
+const projetoModal = document.getElementById('projeto-modal');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+const modalTitulo = document.getElementById('modal-titulo');
+const modalCategoria = document.getElementById('modal-categoria');
+const modalDescricao = document.getElementById('modal-descricao');
+const modalImgPrincipal = document.getElementById('modal-img-principal');
+const modalTags = document.getElementById('modal-tags');
+const modalLinkDemo = document.getElementById('modal-link-demo');
+const modalLinkGithub = document.getElementById('modal-link-github');
+
+const projetosDetalhes = {
+    1: {
+        titulo: "Projeto Alpha — Plataforma Web Moderna",
+        categoria: "Full Stack & Design System",
+        imagem: "static/imagens/Captura de tela 2026-03-13 235819.png",
+        descricao: "Uma plataforma web completa e interativa, arquitetada para oferecer navegação fluida e performance impecável. Desenvolvida utilizando conceitos de glassmorphism, tipografia moderna e integração com APIs assíncronas para consumo de dados em tempo real.",
+        tags: ["HTML5", "CSS3 Moderno", "JavaScript ES6+", "Figma", "Design System"],
+        demo: "#",
+        github: "https://github.com/AlbuquerqueGabriel22"
+    },
+    2: {
+        titulo: "Projeto Beta — Automação de Processos & APIs",
+        categoria: "Automação & Backend",
+        imagem: "static/imagens/Captura de tela 2026-03-13 235819.png",
+        descricao: "Solução automatizada desenvolvida em Python para otimizar rotinas operacionais, extração de relatórios automatizados, web scraping de dados estruturados e conexão com webhooks inteligentes.",
+        tags: ["Python", "Flask", "Requests", "Web Scraping", "Automação", "REST API"],
+        demo: "#",
+        github: "https://github.com/AlbuquerqueGabriel22"
+    },
+    3: {
+        titulo: "Projeto Gamma — Auditoria de Segurança & Pentest",
+        categoria: "Cibersegurança & Pentest",
+        imagem: "static/imagens/Captura de tela 2026-03-13 235819.png",
+        descricao: "Kit de ferramentas e scripts voltados para análise de vulnerabilidades de rede e aplicações web, varredura de portas, identificação de falhas conhecidas e geração automatizada de relatórios técnicos de segurança.",
+        tags: ["Cibersegurança", "Pentest", "Linux Bash", "Python", "Redes", "Auditoria"],
+        demo: "#",
+        github: "https://github.com/AlbuquerqueGabriel22"
+    },
+    4: {
+        titulo: "Projeto Delta — Dashboard Analítico & Telemetria",
+        categoria: "Frontend & Data Analytics",
+        imagem: "static/imagens/Captura de tela 2026-03-13 235819.png",
+        descricao: "Painel de controle analítico em tempo real com gráficos dinâmicos, acompanhamento de métricas operacionais e visualização intuitiva de telemetria em modo dark premium.",
+        tags: ["Frontend", "UI/UX", "Charts", "JavaScript", "Telemetria"],
+        demo: "#",
+        github: "https://github.com/AlbuquerqueGabriel22"
+    }
+};
+
+function abrirModalProjeto(id) {
+    const dados = projetosDetalhes[id];
+    if (!dados || !projetoModal) return;
+
+    modalTitulo.textContent = dados.titulo;
+    modalCategoria.textContent = dados.categoria;
+    modalDescricao.textContent = dados.descricao;
+    modalImgPrincipal.src = dados.imagem;
+    modalImgPrincipal.alt = dados.titulo;
+    
+    // Tags
+    modalTags.innerHTML = '';
+    dados.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = tag;
+        modalTags.appendChild(span);
+    });
+
+    modalLinkDemo.href = dados.demo;
+    modalLinkGithub.href = dados.github;
+
+    projetoModal.classList.add('open');
+    projetoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // Impede scroll ao abrir modal
+}
+
+function fecharModalProjeto() {
+    if (!projetoModal) return;
+    projetoModal.classList.remove('open');
+    projetoModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+// Event Listeners para botões "Ver Detalhes ↗"
+document.querySelectorAll('.btn-open-modal').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.getAttribute('data-id');
+        abrirModalProjeto(id);
+    });
+});
+
+// Clique no card de projeto ativo também expande o modal
+projItems.forEach(item => {
+    item.addEventListener('click', () => {
+        if (item.classList.contains('active')) {
+            const id = item.getAttribute('data-id');
+            abrirModalProjeto(id);
+        }
+    });
+});
+
+if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', fecharModalProjeto);
+}
+
+// Fechar ao clicar no backdrop (fora do card)
+if (projetoModal) {
+    projetoModal.addEventListener('click', (e) => {
+        if (e.target === projetoModal) {
+            fecharModalProjeto();
+        }
+    });
+}
+
+// Fechar com a tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        fecharModalProjeto();
+    }
+});
 
 /* ---- AUTOPLAY MUTE VIDEOS EM COLMEIA ---- */
 document.querySelectorAll('.honeycomb-video').forEach(video => {
