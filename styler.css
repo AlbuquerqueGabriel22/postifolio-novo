@@ -1,9 +1,30 @@
 /* Body styling with smooth gradient background */
-*{
+*{  font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #ffffff;
 }
 
 body{
     /* Gradient background for a modern look */
     background: linear-gradient(135deg, #0a0909ff, #2a5298);
+}
+
+header{
+    padding: 25px;
+    margin: 0;
+    background: linear-gradient( rgb(29, 27, 27), rgb(8, 39, 175));
+}
+
+ul{
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.persona-content-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    
 }
