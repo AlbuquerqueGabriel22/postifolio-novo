@@ -1,279 +1,526 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Portfólio de Gabriel Albuquerque — Desenvolvedor Front-end, Back-end e Automação">
+    <meta name="author" content="Gabriel Albuquerque">
+    <meta property="og:title" content="Gabriel Albuquerque — Desenvolvedor">
+    <meta property="og:description" content="Portfólio de Gabriel Albuquerque — Desenvolvedor Front-end, Back-end e Automação">
+    <title>Gabriel Albuquerque — Desenvolvedor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styler.css">
 </head>
 
 <body>
-    <header>
-        <div>
-            <ul class="header-nav-ul">
-                <li class="header-nav-li">
-                    <a href="#" class="header-nav-a">Projetos</a>
-                </li>
-                <li class="header-nav-li">
-                    <a href="#" class="header-nav-a">Sobre mim</a>
-                </li>
-                <li class="header-nav-li">
-                    <a href="#" class="header-nav-a">Contato</a>
-                </li>
+
+    <!-- Cursor personalizado -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- ============ HEADER ============ -->
+    <header id="header">
+        <nav class="nav">
+            <div class="nav-logo">
+                <span class="logo-initials">GA</span>
+                <span class="logo-name">Gabriel Albuquerque</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#sobre-mim" class="nav-link">Sobre mim</a></li>
+                <li><a href="#areas" class="nav-link">Áreas</a></li>
+                <li><a href="#projetos-lista" class="nav-link">Projetos</a></li>
+                <li><a href="#experiencias" class="nav-link">Experiência</a></li>
+                <li><a href="#contato" class="nav-link nav-cta">Contato</a></li>
             </ul>
-        </div>
+            <button class="nav-mobile-btn" id="nav-mobile-btn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
     </header>
+
     <main>
-        <div class="main-texto-inicio">
-            <div class="persona-content-img">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="imagem-de-perfil">
+
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="hero">
+            <div class="hero-bg-grid"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        Disponível para projetos
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Desenvolvedor</span><br>
+                        Front-end &<br>Back-end
+                    </h1>
+                    <p class="hero-desc">
+                        Com foco em front-end, back-end e scripts de automação. Busco sempre entregar o melhor
+                        resultado em cada projeto, com experiência em diversas tecnologias.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projetos-lista" class="btn btn-primary" id="hero-btn-projetos">
+                            Ver Projetos <span class="btn-arrow">→</span>
+                        </a>
+                        <a href="#sobre-mim" class="btn btn-ghost" id="hero-btn-sobre">Sobre mim</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-img-wrapper">
+                        <div class="hero-img-glow"></div>
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png"
+                            alt="Gabriel Albuquerque" class="hero-img">
+                    </div>
+                    <div class="hero-floating-card card-1">
+                        <span class="fc-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </span>
+                        <span class="fc-text">Full Stack Dev</span>
+                    </div>
+                    <div class="hero-floating-card card-2">
+                        <span class="fc-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </span>
+                        <span class="fc-text">Automação</span>
+                    </div>
+                </div>
             </div>
-
-            <div class="main-header-text">
-                <h1>Prazer em conhece-los</h1>
-                <h2>Me chamo Gabriel Albuquerque</h2>
-                <p class="p-descriçao-1">
-                    Desenvolvedor com foco em front-end e back-end e scripts de automação, nao digo ainda que sou um
-                    Full Stack mas pois ainda falta muito para mim aprender, busco sempre entregar o melhor resultado em
-                    cada projeto. Tenho experiência em diversas tecnologias e estou sempre aprendendo coisas novas.
-                </p>
+            <div class="hero-scroll-hint">
+                <span>scroll</span>
+                <div class="scroll-line"></div>
             </div>
-        </div>
-        <h2 class="projetos-title">Meus projetos</h2>
-        <div class="projetos">
-            <div class="projeto-1">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="img-projeto-1">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
+        </section>
+
+        <!-- ============ PROJETOS DESTAQUE ============ -->
+        <section class="projetos-destaque" id="projetos">
+            <div class="section-header">
+                <span class="section-tag">// projetos em destaque</span>
+                <h2 class="section-title">Meus <span class="gradient-text">Projetos</span></h2>
             </div>
-            <div class="projeto-2">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="img-projeto-2">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quasi fuga facere nemo magnam libero
-                    voluptatibus est atque perferendis perspiciatis rerum fugiat id possimus dicta deserunt amet
-                    provident, reprehenderit tenetur?</p>
+            <div class="projetos-grid">
+                <div class="projeto-card" id="projeto-card-1">
+                    <div class="projeto-card-num">01</div>
+                    <div class="projeto-card-img">
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="Projeto 1">
+                        <div class="projeto-card-overlay">
+                            <a href="#" class="btn-ver" id="btn-ver-proj1">Ver projeto →</a>
+                        </div>
+                    </div>
+                    <div class="projeto-card-info">
+                        <h3>Projeto Alpha</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                            excepturi similique.</p>
+                        <div class="projeto-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projeto-card" id="projeto-card-2">
+                    <div class="projeto-card-num">02</div>
+                    <div class="projeto-card-img">
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="Projeto 2">
+                        <div class="projeto-card-overlay">
+                            <a href="#" class="btn-ver" id="btn-ver-proj2">Ver projeto →</a>
+                        </div>
+                    </div>
+                    <div class="projeto-card-info">
+                        <h3>Projeto Beta</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quasi fuga facere
+                            nemo magnam.</p>
+                        <div class="projeto-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projeto-card" id="projeto-card-3">
+                    <div class="projeto-card-num">03</div>
+                    <div class="projeto-card-img">
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="Projeto 3">
+                        <div class="projeto-card-overlay">
+                            <a href="#" class="btn-ver" id="btn-ver-proj3">Ver projeto →</a>
+                        </div>
+                    </div>
+                    <div class="projeto-card-info">
+                        <h3>Projeto Gamma</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur doloribus
+                            totam assumenda.</p>
+                        <div class="projeto-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="projeto-3">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="img-projeto-3">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur doloribus, totam assumenda
-                    aspernatur a alias ducimus, perferendis deleniti tempore reprehenderit perspiciatis ipsa libero
-                    soluta doloremque consequatur quae odit sed neque!</p>
+        </section>
+
+        <!-- ============ SOBRE MIM ============ -->
+        <section class="sobre-mim" id="sobre-mim">
+            <div class="sobre-mim-inner">
+                <div class="sobre-mim-stats">
+                    <div class="stat-item" id="stat-anos">
+                        <span class="stat-num gradient-text">3+</span>
+                        <span class="stat-label">Anos de estudo</span>
+                    </div>
+                    <div class="stat-item" id="stat-projetos">
+                        <span class="stat-num gradient-text">10+</span>
+                        <span class="stat-label">Projetos realizados</span>
+                    </div>
+                    <div class="stat-item" id="stat-areas">
+                        <span class="stat-num gradient-text">5</span>
+                        <span class="stat-label">Áreas de foco</span>
+                    </div>
+                </div>
+                <div class="sobre-mim-content">
+                    <span class="section-tag">// sobre mim</span>
+                    <h2 class="section-title">Um pouco sobre <span class="gradient-text">mim</span></h2>
+                    <p>Desenvolvedor com foco em front-end e back-end e scripts de automação. Não me considero
+                        ainda um Full Stack pois ainda falta muito para aprender, mas busco sempre entregar o
+                        melhor resultado em cada projeto.</p>
+                    <p>Tenho experiência em diversas tecnologias e estou sempre aprendendo coisas novas para
+                        me manter atualizado com o mercado.</p>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Linux</span>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="sobre-mim">
-            <h1 class="h1-content-sobre-mim">Um pouco sobre mim</h1>
-        </div>
-        <div class="sobre-mim-text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique
-                ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem
-                asperiores veritatis magni?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique
-                ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem
-                asperiores veritatis magni?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique
-                ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem
-                asperiores veritatis magni?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique
-                ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem
-                asperiores veritatis magni?</p>
-        </div>
-
-        <div class="minha-historia-com-a-programacao">
-            <h1>Minha historia com a programacao</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique
-                ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem
-                asperiores veritatis magni?</p>
-            <div class="img" id="img-jogo1"><img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt=""></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique
-                ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem
-                asperiores veritatis magni?</p>
-
-            <div class="img" id="img-jogo2">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="">
+        <!-- ============ HISTÓRIA COM A PROGRAMAÇÃO ============ -->
+        <section class="historia" id="historia">
+            <div class="section-header">
+                <span class="section-tag">// história</span>
+                <h2 class="section-title">Minha história com a <span class="gradient-text">programação</span>
+                </h2>
             </div>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique
-                ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem
-                asperiores veritatis magni?</p>
-
-            <div class="img" id="img-jogo3">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="">
+            <div class="historia-content">
+                <div class="historia-block">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                        excepturi similique ad officiis quo tempora molestias expedita. Distinctio similique
+                        consequatur nam totam qui, autem asperiores veritatis magni?</p>
+                    <div class="historia-img">
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png"
+                            alt="Início na programação">
+                    </div>
+                </div>
+                <div class="historia-block reverse">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                        excepturi similique ad officiis quo tempora molestias expedita. Distinctio similique
+                        consequatur nam totam qui, autem asperiores veritatis magni?</p>
+                    <div class="historia-img">
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="Evolução">
+                    </div>
+                </div>
+                <div class="historia-block">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                        excepturi similique ad officiis quo tempora molestias expedita. Distinctio similique
+                        consequatur nam totam qui, autem asperiores veritatis magni?</p>
+                    <div class="historia-img">
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="Projetos">
+                    </div>
+                </div>
+                <p class="historia-final">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse
+                    dignissimos expedita, adipisci quo numquam modi assumenda ullam, minima, quod commodi aliquam
+                    magnam inventore sunt voluptas laborum quos deleniti totam consequuntur?</p>
             </div>
+        </section>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique
-                ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem
-                asperiores veritatis magni?</p>
-
-            <div class="img" id="img-jogo4">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="">
+        <!-- ============ ÁREAS DE ESTUDO ============ -->
+        <section class="areas" id="areas">
+            <div class="section-header">
+                <span class="section-tag">// especialidades</span>
+                <h2 class="section-title">Principais áreas de <span class="gradient-text">estudo</span></h2>
             </div>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique
-                ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem
-                asperiores veritatis magni?</p>
-
-            <div class="img" id="img-jogo5">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="">
+            <div class="areas-grid">
+                <div class="area-card" data-color="purple" id="area-ciberseg">
+                    <div class="area-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Cibersegurança</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                        excepturi similique ad officiis quo tempora.</p>
+                </div>
+                <div class="area-card" data-color="blue" id="area-web">
+                    <div class="area-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>Desenvolvimento Web</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                        excepturi similique ad officiis quo tempora.</p>
+                </div>
+                <div class="area-card" data-color="green" id="area-auto">
+                    <div class="area-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
+                    </div>
+                    <h3>Automação</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                        excepturi similique ad officiis quo tempora.</p>
+                </div>
+                <div class="area-card" data-color="orange" id="area-dados">
+                    <div class="area-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <h3>Análise de Dados</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                        excepturi similique ad officiis quo tempora.</p>
+                </div>
+                <div class="area-card" data-color="pink" id="area-ia">
+                    <div class="area-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+                    </div>
+                    <h3>IA &amp; Machine Learning</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                        excepturi similique ad officiis quo tempora.</p>
+                </div>
             </div>
-            <!-- sem imagem aqui-->
+        </section>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse dignissimos expedita, adipisci quo numquam
-                modi assumenda ullam, minima, quod commodi aliquam magnam inventore sunt voluptas laborum quos deleniti
-                totam consequuntur?</p>
-        </div>
-
-        <div class="principais-areas-de-estudo">
-            <h1>Principais areas de estudo</h1>
-            <div class="cibersegurnça">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
+        <!-- ============ EXPERIÊNCIAS ============ -->
+        <section class="experiencias" id="experiencias">
+            <div class="section-header">
+                <span class="section-tag">// experiência</span>
+                <h2 class="section-title">Minha <span class="gradient-text">trajetória</span></h2>
             </div>
-
-            <div class="desenvolvimento-web">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
+            <div class="timeline">
+                <div class="timeline-item" id="exp-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3>Cargo</h3>
+                            <span class="timeline-date">00/0000 — 00/0000</span>
+                        </div>
+                        <h4>Empresa</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                            excepturi similique ad officiis quo tempora molestias expedita.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" id="exp-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3>Cargo</h3>
+                            <span class="timeline-date">00/0000 — 00/0000</span>
+                        </div>
+                        <h4>Empresa</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                            excepturi similique ad officiis quo tempora molestias expedita.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" id="exp-3">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3>Cargo</h3>
+                            <span class="timeline-date">00/0000 — 00/0000</span>
+                        </div>
+                        <h4>Empresa</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                            excepturi similique ad officiis quo tempora molestias expedita.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" id="exp-4">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-header">
+                            <h3>Cargo</h3>
+                            <span class="timeline-date">00/0000 — 00/0000</span>
+                        </div>
+                        <h4>Empresa</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo
+                            excepturi similique ad officiis quo tempora molestias expedita.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="automação">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
+        <!-- ============ PROJETOS LISTA DETALHADA ============ -->
+        <section class="projetos-lista" id="projetos-lista">
+            <div class="section-header">
+                <span class="section-tag">// portfólio completo</span>
+                <h2 class="section-title">Todos os <span class="gradient-text">projetos</span></h2>
             </div>
+            <div class="projetos-lista-grid">
+                <div class="projeto-lista-card" id="pl-card-1">
+                    <div class="pl-imgs">
+                        <img src="" alt="Screenshot projeto 1">
+                        <img src="" alt="Screenshot projeto 1 - detalhe">
+                    </div>
+                    <div class="pl-info">
+                        <span class="pl-num">01</span>
+                        <h3>Projeto 1</h3>
+                        <p>Descrição do projeto em breve.</p>
+                        <a href="#" class="btn btn-ghost btn-sm" id="btn-pl1">Ver →</a>
+                    </div>
+                </div>
+                <div class="projeto-lista-card" id="pl-card-2">
+                    <div class="pl-imgs">
+                        <img src="" alt="Screenshot projeto 2">
+                        <img src="" alt="Screenshot projeto 2 - detalhe">
+                    </div>
+                    <div class="pl-info">
+                        <span class="pl-num">02</span>
+                        <h3>Projeto 2</h3>
+                        <p>Descrição do projeto em breve.</p>
+                        <a href="#" class="btn btn-ghost btn-sm" id="btn-pl2">Ver →</a>
+                    </div>
+                </div>
+                <div class="projeto-lista-card" id="pl-card-3">
+                    <div class="pl-imgs">
+                        <img src="" alt="Screenshot projeto 3">
+                        <img src="" alt="Screenshot projeto 3 - detalhe">
+                    </div>
+                    <div class="pl-info">
+                        <span class="pl-num">03</span>
+                        <h3>Projeto 3</h3>
+                        <p>Descrição do projeto em breve.</p>
+                        <a href="#" class="btn btn-ghost btn-sm" id="btn-pl3">Ver →</a>
+                    </div>
+                </div>
+                <div class="projeto-lista-card" id="pl-card-4">
+                    <div class="pl-imgs">
+                        <img src="" alt="Screenshot projeto 4">
+                        <img src="" alt="Screenshot projeto 4 - detalhe">
+                    </div>
+                    <div class="pl-info">
+                        <span class="pl-num">04</span>
+                        <h3>Projeto 4</h3>
+                        <p>Descrição do projeto em breve.</p>
+                        <a href="#" class="btn btn-ghost btn-sm" id="btn-pl4">Ver →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <div class="analise-de-dados">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
+        <!-- ============ FORMAÇÃO ============ -->
+        <section class="formacao" id="formacao">
+            <div class="section-header">
+                <span class="section-tag">// formação</span>
+                <h2 class="section-title">Minha <span class="gradient-text">formação</span></h2>
             </div>
+            <div class="formacao-card" id="formacao-card">
+                <div class="formacao-logo">
+                    <img src="" alt="Logo da instituição">
+                </div>
+                <div class="formacao-info">
+                    <h3>Curso</h3>
+                    <h4>Instituição</h4>
+                    <span class="timeline-date">00/0000 — 00/0000</span>
+                </div>
+            </div>
+        </section>
 
-            <div class="IA-e-sua-estrutura">
-                <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
+        <!-- ============ CERTIFICADOS ============ -->
+        <section class="certificados" id="certificados">
+            <div class="section-header">
+                <span class="section-tag">// certificados</span>
+                <h2 class="section-title">Meus <span class="gradient-text">certificados</span></h2>
             </div>
-        </div>
-
-        <div class="experiencias-lista">
-            <div class="experiencia-1">
-                <h3>cargo</h3>
-                <h4>empresa</h4>
-                <h4>00/00/0000-00/00/0000</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
+            <div class="certificados-grid">
+                <div class="certificado-card" id="cert-1">
+                    <div class="cert-front">
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="Certificado 1">
+                    </div>
+                    <div class="cert-back">
+                        <span>Ver certificado</span>
+                        <a href="#" class="btn btn-primary btn-sm" id="btn-cert1">Abrir →</a>
+                    </div>
+                </div>
+                <div class="certificado-card" id="cert-2">
+                    <div class="cert-front">
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="Certificado 2">
+                    </div>
+                    <div class="cert-back">
+                        <span>Ver certificado</span>
+                        <a href="#" class="btn btn-primary btn-sm" id="btn-cert2">Abrir →</a>
+                    </div>
+                </div>
+                <div class="certificado-card" id="cert-3">
+                    <div class="cert-front">
+                        <img src="static/imagens/Captura de tela 2026-03-13 235819.png" alt="Certificado 3">
+                    </div>
+                    <div class="cert-back">
+                        <span>Ver certificado</span>
+                        <a href="#" class="btn btn-primary btn-sm" id="btn-cert3">Abrir →</a>
+                    </div>
+                </div>
             </div>
-
-            <div class="experiencia-2">
-                <h3>cargo</h3>
-                <h4>empresa</h4>
-                <h4>00/00/0000-00/00/0000</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
-            </div>
-
-            <div class="experiencia-3">
-                <h3>cargo</h3>
-                <h4>empresa</h4>
-                <h4>00/00/0000-00/00/0000</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
-            </div>
-
-            <div class="experiencia-4">
-                <h3>cargo</h3>
-                <h4>empresa</h4>
-                <h4>00/00/0000-00/00/0000</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi
-                    similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam
-                    qui, autem asperiores veritatis magni?</p>
-            </div>
-        </div>
-
-        <h1>Projetos</h1>
-        <div class="projetos-lista">
-            <div class="projeto-1">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <p></p>
-            </div>
-
-            <div class="projeto-2">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <p></p>
-            </div>
-
-            <div class="projeto-3">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <p></p>
-            </div>
-
-            <div class="projeto-4">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <p></p>
-            </div>
-        </div>
-
-        <div class="Formaçao">
-            <div class="imagem-formacao">
-                <img src="" alt="">
-            </div>
-            <div class="texto-formacao">
-                <h3>Curso</h3>
-                <h4>instituicao</h4>
-                <h4>00/00/0000-00/00/0000</h4>
-
-            </div>
-        </div>
-
-        <div class="certificados">
-            <div class="bnt-pasta-crt">
-                <button>certificados</button>
-                <img src="Captura de tela 2026-03-13 235819.png" alt="">
-                <img src="Captura de tela 2026-03-13 235819.png" alt="">
-                <img src="Captura de tela 2026-03-13 235819.png" alt="">
-                <p>clique para abrir a pasta</p>
-            </div>
-        </div>
+        </section>
 
     </main>
-    <footer>
-        <div class="contatos-footer">
-            <ul>
-                <li><a href=""><img src="" alt=""></a></li>
-                <li><a href=""><img src="" alt=""></a></li>
-                <li><a href=""><img src="" alt=""></a></li>
-                <li><a href=""><img src="" alt=""></a></li>
-                <li><a href=""><img src="" alt=""></a></li>
-                <li><a href=""><img src="" alt=""></a></li>
-                <li><a href=""><img src="" alt=""></a></li>
-            </ul>
-        </div>
-        <div class="botao-inicio">
-            <button id="voltaInicio" class="voltar">inicio</button>
+
+    <!-- ============ FOOTER / CONTATO ============ -->
+    <footer id="contato">
+        <div class="footer-inner">
+            <div class="footer-cta">
+                <span class="section-tag">// contato</span>
+                <h2 class="footer-title">Vamos <span class="gradient-text">trabalhar juntos?</span></h2>
+                <p>Me manda uma mensagem e vamos conversar sobre seu projeto.</p>
+                <a href="mailto:gabriel@email.com" class="btn btn-primary" id="email-btn">
+                    gabriel@email.com
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <ul class="social-links">
+                    <li>
+                        <a href="" class="social-link" id="link-github" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="social-link" id="link-linkedin" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="social-link" id="link-instagram" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="social-link" id="link-twitter" aria-label="Twitter / X">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                            Twitter
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Gabriel Albuquerque — Todos os direitos reservados.</p>
+                <button id="voltaInicio" class="btn-top" aria-label="Voltar ao topo">↑</button>
+            </div>
         </div>
     </footer>
+
     <script src="script.js"></script>
 </body>
 
