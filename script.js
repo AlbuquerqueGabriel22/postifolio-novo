@@ -374,14 +374,16 @@ const modalTags = document.getElementById('modal-tags');
 const modalLinkDemo = document.getElementById('modal-link-demo');
 const modalLinkGithub = document.getElementById('modal-link-github');
 
+const modalVideoPrincipal = document.getElementById('modal-video-principal');
+
 const projetosDetalhes = {
     1: {
-        titulo: "Projeto Alpha — Plataforma Web Moderna",
-        categoria: "Full Stack & Design System",
+        titulo: "Site de Apresentação de Restaurante",
+        categoria: "Web & Python Flask",
         imagem: "static/imagens/Captura de tela 2026-03-13 235819.png",
-        descricao: "Uma plataforma web completa e interativa, arquitetada para oferecer navegação fluida e performance impecável. Desenvolvida utilizando conceitos de glassmorphism, tipografia moderna e integração com APIs assíncronas para consumo de dados em tempo real.",
-        tags: ["HTML5", "CSS3 Moderno", "JavaScript ES6+", "Figma", "Design System"],
-        demo: "#",
+        video: "static/videos/Video Project 25 (1).mp4",
+        descricao: "Site simples e elegante desenvolvido para apresentação de restaurante, exibição de cardápio interativo e informações do estabelecimento comercial, integrando front-end responsivo a um back-end dinâmico com Python Flask.",
+        tags: ["HTML", "CSS", "JavaScript", "Python Flask"],
         github: "https://github.com/AlbuquerqueGabriel22"
     },
     2: {
@@ -420,8 +422,26 @@ function abrirModalProjeto(id) {
     modalTitulo.textContent = dados.titulo;
     modalCategoria.textContent = dados.categoria;
     modalDescricao.textContent = dados.descricao;
-    modalImgPrincipal.src = dados.imagem;
-    modalImgPrincipal.alt = dados.titulo;
+
+    // Gerenciar vídeo vs imagem no modal
+    if (dados.video && modalVideoPrincipal) {
+        modalVideoPrincipal.src = dados.video;
+        modalVideoPrincipal.style.display = 'block';
+        if (modalImgPrincipal) modalImgPrincipal.style.display = 'none';
+        modalVideoPrincipal.currentTime = 0;
+        modalVideoPrincipal.play().catch(() => {});
+    } else {
+        if (modalVideoPrincipal) {
+            modalVideoPrincipal.pause();
+            modalVideoPrincipal.removeAttribute('src');
+            modalVideoPrincipal.style.display = 'none';
+        }
+        if (modalImgPrincipal) {
+            modalImgPrincipal.src = dados.imagem;
+            modalImgPrincipal.alt = dados.titulo;
+            modalImgPrincipal.style.display = 'block';
+        }
+    }
     
     // Tags
     modalTags.innerHTML = '';
@@ -432,8 +452,17 @@ function abrirModalProjeto(id) {
         modalTags.appendChild(span);
     });
 
-    modalLinkDemo.href = dados.demo;
-    modalLinkGithub.href = dados.github;
+    if (modalLinkDemo) {
+        if (dados.demo) {
+            modalLinkDemo.href = dados.demo;
+            modalLinkDemo.style.display = 'inline-flex';
+        } else {
+            modalLinkDemo.style.display = 'none';
+        }
+    }
+    if (modalLinkGithub) {
+        modalLinkGithub.href = dados.github || '#';
+    }
 
     projetoModal.classList.add('open');
     projetoModal.setAttribute('aria-hidden', 'false');
@@ -445,6 +474,12 @@ function fecharModalProjeto() {
     projetoModal.classList.remove('open');
     projetoModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+
+    // Pausa e reseta vídeo do modal se estiver rodando
+    if (modalVideoPrincipal) {
+        modalVideoPrincipal.pause();
+        modalVideoPrincipal.currentTime = 0;
+    }
 }
 
 // Event Listeners para botões "Ver Detalhes ↗"
