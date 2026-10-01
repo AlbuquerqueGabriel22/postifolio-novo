@@ -759,9 +759,11 @@ export default function App() {
               <div className="honeycomb-wrap" {...cursorHoverProps}>
                 <div className="honeycomb-border">
                   <div className="honeycomb-inner">
-                    <video autoPlay muted loop playsInline poster="/static/imagens/Captura de tela 2026-03-13 235819.png" className="honeycomb-video">
-                      <source src="/static/videos/Video Project 1.mp4" type="video/mp4" />
-                    </video>
+                    <img
+                      src="/static/imagens/DSC_09891_EDITADAS_1_c3a0579db7.webp"
+                      alt="Planejamentos Futuros"
+                      className="honeycomb-img"
+                    />
                   </div>
                 </div>
                 <div className="honeycomb-glow"></div>
@@ -842,9 +844,7 @@ export default function App() {
               </div>
             </div>
 
-            <p className="historia-final">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse dignissimos expedita, adipisci quo numquam modi assumenda ullam, minima, quod commodi aliquam magnam inventore sunt voluptas laborum quos deleniti totam consequuntur?
-            </p>
+    
           </div>
         </section>
 
