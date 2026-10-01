@@ -515,7 +515,7 @@ export default function App() {
                 &amp; Pentester
               </h1>
               <p className="hero-desc">
-                Com foco em front-end, back-end, cibersegurança e scripts de automação. Busco sempre entregar o melhor
+                Desenvolvedor front-end, back-end, cibersegurança e scripts de automação. Busco sempre entregar o melhor
                 resultado em cada projeto, com experiência em diversas tecnologias.
               </p>
               <div className="hero-actions">
@@ -846,35 +846,35 @@ export default function App() {
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <h3>Cibersegurança</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique ad officiis quo tempora.</p>
+              <p>Formado pela Desec no curso de Pentest Profissional, com conhecimento em segurança ofensiva, testes de invasão e mitigação de vulnerabilidades.</p>
             </div>
             <div className="area-card" data-color="blue" id="area-web" {...cursorHoverProps}>
               <div className="area-card-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               </div>
               <h3>Desenvolvimento Web</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique ad officiis quo tempora.</p>
+              <p>Desenvolvimento de plataformas completas e landing pages de alta conversão para microempresas e clientes de diversos segmentos.</p>
             </div>
             <div className="area-card" data-color="green" id="area-auto" {...cursorHoverProps}>
               <div className="area-card-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
               </div>
               <h3>Automação</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique ad officiis quo tempora.</p>
+              <p>Criação de scripts de automação para planilhas, otimização de ações diárias e simplificação de tarefas repetitivas com precisão.</p>
             </div>
             <div className="area-card" data-color="orange" id="area-dados" {...cursorHoverProps}>
               <div className="area-card-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
               </div>
               <h3>Análise de Dados</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique ad officiis quo tempora.</p>
+              <p>Observação e análise do mercado financeiro de ações e criptomoedas, monitorando altas, baixas, padrões de compra/venda e moedas mais relevantes.</p>
             </div>
             <div className="area-card" data-color="pink" id="area-ia" {...cursorHoverProps}>
               <div className="area-card-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
               </div>
               <h3>IA &amp; Machine Learning</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique ad officiis quo tempora.</p>
+              <p>Desenvolvimento de IAs para identificação de padrões no mercado financeiro (sinais de compra e venda) e assistência inteligente em rotinas diárias.</p>
             </div>
           </div>
         </section>
@@ -886,21 +886,47 @@ export default function App() {
             <h2 className="section-title">Minha <span className="gradient-text">trajetória</span></h2>
           </div>
           <div className="timeline">
-            {[1, 2, 3, 4].map((num) => (
-              <div key={num} className="timeline-item" id={`exp-${num}`}>
-                <div className="timeline-dot"></div>
-                <div className="timeline-card">
-                  <div className="timeline-header">
-                    <h3>Cargo</h3>
-                    <span className="timeline-date">00/0000 — 00/0000</span>
-                  </div>
-                  <h4>Empresa</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique ad officiis quo tempora molestias expedita.
-                  </p>
+            <div className="timeline-item" id="exp-1">
+              <div className="timeline-dot"></div>
+              <div className="timeline-card">
+                <div className="timeline-header">
+                  <h3>Desenvolvedor Autônomo</h3>
+                  <span className="timeline-date">2025</span>
                 </div>
+                <h4>Freelancer</h4>
+                <p>
+                  Desenvolvimento e entrega de projetos sob demanda para comércios e serviços, incluindo padarias, restaurantes e clínicas.
+                </p>
               </div>
-            ))}
+            </div>
+
+            <div className="timeline-item" id="exp-2">
+              <div className="timeline-dot"></div>
+              <div className="timeline-card">
+                <div className="timeline-header">
+                  <h3>Professor de Desenvolvimento</h3>
+                  <span className="timeline-date">2025</span>
+                </div>
+                <h4>Ensino & Mentoria</h4>
+                <p>
+                  Ensino prático de desenvolvimento web cobrindo HTML, CSS e JavaScript desde os fundamentos até a construção de um projeto real completo.
+                </p>
+              </div>
+            </div>
+
+            <div className="timeline-item" id="exp-3">
+              <div className="timeline-dot"></div>
+              <div className="timeline-card">
+                <div className="timeline-header">
+                  <h3>Técnico em TI</h3>
+                  <span className="timeline-date">2024</span>
+                </div>
+                <h4>Centerlite</h4>
+                <p>
+                  Atuação com administração de firewall, manutenção preventiva e corretiva de computadores, suporte e manutenção de sistemas, além de administração de rede cabeada e Wi-Fi.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
