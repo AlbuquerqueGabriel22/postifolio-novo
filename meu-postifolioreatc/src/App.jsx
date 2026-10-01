@@ -334,16 +334,24 @@ export default function App() {
     document.body.style.overflow = '';
   };
 
-  // Copiar Email
+  // Email com mensagem pronta
+  const emailDestino = 'albuquerquegabriel307@gmail.com';
+  const emailAssunto = encodeURIComponent('Contato através do Portfólio - Proposta de Projeto');
+  const emailCorpo = encodeURIComponent(
+    `Olá, Gabriel!\n\nVi seu portfólio e gostaria de conversar sobre um projeto/oportunidade.\n\nDetalhes do projeto/ideia:\n[Escreva sua mensagem aqui]\n\nAtenciosamente,\n[Seu Nome]\n[Seu Contato]`
+  );
+  const mailtoUrl = `mailto:${emailDestino}?subject=${emailAssunto}&body=${emailCorpo}`;
+
+  // Copiar Email e abrir cliente de e-mail com template pronto
   const copiarEmail = (e) => {
     e.preventDefault();
-    const email = 'albuquerquegabriel307@gmail.com';
-    navigator.clipboard.writeText(email).then(() => {
-      setEmailCopied(true);
-      setTimeout(() => setEmailCopied(false), 2200);
-    }).catch(() => {
-      window.location.href = `mailto:${email}`;
-    });
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(emailDestino).then(() => {
+        setEmailCopied(true);
+        setTimeout(() => setEmailCopied(false), 2200);
+      }).catch(() => {});
+    }
+    window.location.href = mailtoUrl;
   };
 
   // Helper de classes da roleta de projetos
@@ -759,9 +767,11 @@ export default function App() {
                 <div className="honeycomb-glow"></div>
               </div>
               <div className="historia-info">
-                <span className="historia-step"></span>
-                <h3>Primeiros passos no mundo tech</h3>
-                <p></p>
+                <span className="historia-step">Visão</span>
+                <h2>Planejamentos Futuros</h2>
+                <p>
+                  Constante evolução profissional aliando engenharia de software de alta performance, soluções escaláveis para negócios e pesquisa contínua em cibersegurança e desenvolvimento de jogos.
+                </p>
               </div>
             </div>
 
@@ -770,9 +780,11 @@ export default function App() {
               <div className="honeycomb-wrap" {...cursorHoverProps}>
                 <div className="honeycomb-border">
                   <div className="honeycomb-inner">
-                    <video autoPlay muted loop playsInline poster="/static/imagens/Captura de tela 2026-03-13 235819.png" className="honeycomb-video">
-                      <source src="/static/videos/" type="video/mp4" />
-                    </video>
+                    <img
+                      src="/static/imagens/componentes-automacao-industrial.jpg"
+                      alt="Desenvolvimento e Automação"
+                      className="honeycomb-img"
+                    />
                   </div>
                 </div>
                 <div className="honeycomb-glow"></div>
@@ -781,7 +793,7 @@ export default function App() {
                 <span className="historia-step">Fase 02</span>
                 <h3>Desenvolvimento &amp; Automação</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem asperiores veritatis magni?
+                  Atuação focada no desenvolvimento de plataformas web e sites modernos como core business, somada à criação de rotinas e scripts de automação sob medida para integrar, otimizar e acelerar processos em diferentes sistemas corporativos.
                 </p>
               </div>
             </div>
@@ -791,9 +803,11 @@ export default function App() {
               <div className="honeycomb-wrap" {...cursorHoverProps}>
                 <div className="honeycomb-border">
                   <div className="honeycomb-inner">
-                    <video autoPlay muted loop playsInline poster="/static/imagens/Captura de tela 2026-03-13 235819.png" className="honeycomb-video">
-                      <source src="/static/videos/video3.mp4" type="video/mp4" />
-                    </video>
+                    <img
+                      src="/static/imagens/images325.jpeg"
+                      alt="Segurança Ofensiva e Pentest"
+                      className="honeycomb-img"
+                    />
                   </div>
                 </div>
                 <div className="honeycomb-glow"></div>
@@ -802,7 +816,7 @@ export default function App() {
                 <span className="historia-step">Fase 03</span>
                 <h3>Segurança Ofensiva &amp; Pentest</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem asperiores veritatis magni?
+                  Aplicação de testes de intrusão (pentest) para identificar e mitigar vulnerabilidades em aplicações web, redes, servidores e infraestruturas, garantindo blindagem digital em total conformidade com a legislação vigente e os padrões da LGPD.
                 </p>
               </div>
             </div>
@@ -823,7 +837,7 @@ export default function App() {
                 <span className="historia-step">Fase 04</span>
                 <h3>Construção de Projetos e Futuro</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus ipsum provident nemo excepturi similique ad officiis quo tempora molestias expedita. Distinctio similique consequatur nam totam qui, autem asperiores veritatis magni?
+                  Desenvolvimento de um jogo 2D autoral com narrativa envolvente sobre super-seres que protegem a Terra através das gerações, tendo como pilar arquitetural o alto desempenho e o controle de memória proporcionados pelo C++.
                 </p>
               </div>
             </div>
@@ -1018,7 +1032,7 @@ export default function App() {
             <h2 className="footer-title">Se interessou por <span className="gradient-text">algo?</span></h2>
             <p>Me manda uma mensagem e vamos conversar sobre seu projeto.</p>
             <a
-              href="mailto:albuquerquegabriel307@gmail.com"
+              href={mailtoUrl}
               className="btn btn-primary"
               id="email-btn"
               onClick={copiarEmail}
